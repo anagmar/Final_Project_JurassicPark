@@ -2,12 +2,13 @@ package com.example.jurassicPark.repository.dinosaurrepository;
 
 import com.example.jurassicPark.models.Dinosaur;
 import com.example.jurassicPark.models.Paddock;
+import com.example.jurassicPark.projections.DinosaurProjection;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import java.util.List;
 
-@Repository
+@RepositoryRestResource(excerptProjection = DinosaurProjection.class)
 public interface DinosaurRepository extends JpaRepository<Dinosaur, Long>, DinosaurRepositoryCustom {
 
     public List<Dinosaur> getDinosaurBySpecies(String species);

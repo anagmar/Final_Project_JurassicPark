@@ -1,0 +1,28 @@
+
+.name {
+  font-family: Futura;
+  list-style: none;
+  color: black;
+  text-decoration: none;
+  left: 5em;
+  text-transform: capitalize;
+}
+
+li {
+  font-family: Futura;
+  text-transform: uppercase;
+  text-decoration: none;
+  list-style: none;
+}
+
+
+
+
+li.component-item {
+  display: inline;
+}
+
+.navLink {
+    display: inline;
+    padding: 30px;
+}

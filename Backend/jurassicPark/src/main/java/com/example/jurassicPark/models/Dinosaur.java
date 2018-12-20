@@ -20,14 +20,14 @@ public class Dinosaur implements Serializable {
     private String species;
 
     @Column(name = "diet")
-    private DietType diet;
+    private String diet;
 
     @JsonIgnore
     @ManyToOne
     @JoinColumn (name = "paddock_id", nullable = false)
     private Paddock paddock;
 
-    public Dinosaur(String name, String species, DietType diet, Paddock paddock){
+    public Dinosaur(String name, String species, String diet, Paddock paddock){
         this.name = name.toLowerCase();
         this.species = species.toLowerCase();
         this.diet = diet;
@@ -54,11 +54,11 @@ public class Dinosaur implements Serializable {
         this.species = species;
     }
 
-    public DietType getDiet() {
+    public String getDiet() {
         return diet;
     }
 
-    public void setDiet(DietType diet) {
+    public void setDiet(String diet) {
         this.diet = diet;
     }
 
@@ -77,4 +77,7 @@ public class Dinosaur implements Serializable {
     public void setPaddock(Paddock paddock) {
         this.paddock = paddock;
     }
+
+
+
 }
