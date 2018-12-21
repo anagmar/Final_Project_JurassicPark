@@ -6,16 +6,15 @@ import DinosaurForm from '../components/DinosaurForm.js'
 class DinosaurFormContainer extends Component {
   constructor(props){
       super(props);
-      this.state = {paddocks: []};
+      this.state = { dinosaurs:[]};
       this.handleDinosaurPost = this.handleDinosaurPost.bind(this);
     }
 
     componentDidMount(){
       const request = new Request();
-      request.get("/api/paddocks").then((data) => {
-        this.setState({paddocks: data._embedded.paddocks})
-        console.log(data._embedded.paddocks)
-      })
+        request.get("/api/dinosaurs").then((data)=>{
+          this.setState({dinosaurs:data._embedded.dinosaurs})
+        })
 
     }
 
@@ -25,7 +24,10 @@ class DinosaurFormContainer extends Component {
 
   handleDinosaurPost(dinosaur){
     const request = new Request();
-    request.post('/api/dinosaurs', dinosaur)
+    request.post('/api/dinosaurs', dinosaur).then(() => {
+      window.location = '/dinosaurs'
+    })
+
   }
 
   render(){
@@ -33,6 +35,7 @@ class DinosaurFormContainer extends Component {
     <DinosaurForm
       paddocks = {this.state.paddocks}
       handleDinosaurPost={this.handleDinosaurPost}
+      dinosaurs = {this.state.dinosaurs}
       />
     )
   }

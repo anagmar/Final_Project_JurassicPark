@@ -6,6 +6,7 @@ import com.example.jurassicPark.repository.paddockreposirtory.PaddockRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -35,9 +36,14 @@ public class PaddockController {
     }
 
     @PostMapping
-    public Paddock newPaddock(@RequestBody Paddock newPaddock ){
+    public Paddock newPaddock(@Valid @RequestBody Paddock newPaddock ){
         return paddockRepository.save(newPaddock);
     }
 
+    @DeleteMapping(value="/{id}")
+    public void deletePaddock(@PathVariable Long id){
+        Paddock paddock = paddockRepository.getOne(id);
+        paddockRepository.delete(paddock);
+    }
 
 }

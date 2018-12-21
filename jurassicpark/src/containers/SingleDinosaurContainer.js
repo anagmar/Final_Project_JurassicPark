@@ -22,7 +22,7 @@ class SingleDinosaurContainer extends Component {
 
   handleDelete(id){
     const request = new Request();
-    const url = '/dinosaurs/' + id;
+    const url = '/dinosaurs/' + this.props.id;
     request.delete(url).then( () => {
       window.location = '/dinosaurs'
     })
@@ -46,7 +46,6 @@ class SingleDinosaurContainer extends Component {
                         dinosaur = {this.state.dinosaur}
                         species = {this.state.dinosaur.species}
                         diet = {this.state.dinosaur.diet}
-                        paddocks = {this.state.dinosaur._embedded.paddock}
                         handleDelete = {this.handleDelete}
                         handleEdit = {this.handleEdit}
                         />

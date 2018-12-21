@@ -24,10 +24,10 @@ class PaddockFormContainer extends Component {
   //     }
 
   handlePaddockPost(paddock, dinoId){
-
     const request = new Request();
+    console.log("new", paddock)
     request.post('/api/paddocks', paddock).then(() => {
-
+      window.location = '/paddocks'
     })
   }
 

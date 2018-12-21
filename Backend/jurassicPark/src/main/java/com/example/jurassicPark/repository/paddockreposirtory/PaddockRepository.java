@@ -14,5 +14,4 @@ import java.util.List;
 public interface PaddockRepository extends JpaRepository<Paddock, Long>, PaddockRepositoryCustom  {
 
     public List<Dinosaur> getAllDinosaursInPaddock(Long id);
-
 }

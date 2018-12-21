@@ -7,38 +7,49 @@ const DinosaurForm = (props) => {
     console.log(event)
     const dinosaur = {
         "name": event.target.name.value,
-        "species": event.target.species.value,
-        "diet":event.target.diet.value,
-        // "paddock": event.target.paddock.value
+        "species":event.target.species.value,
+        "diet":event.target.diet.value
       }
+        // "paddock": event.target.paddock.value
+
     console.log(dinosaur)
     props.handleDinosaurPost(dinosaur)
     }
 
 
-    // <select name="paddock">
-    //               {paddockOptions}
-    //             </select>
+
+console.log(props.dinosaurs);
+
+  const dinoOptions = props.dinosaurs.map((dinosaur, index) => {
+      console.log(dinosaur.diet)
+       return <option key={index} value={dinosaur.diet}>{dinosaur.species}</option>
+     })
 
 
 
-  // const paddockOptions = props.paddocks.map((paddock, index) => {
-  //     console.log(paddock)
-  //      return <option key={index} value={paddock._links.self.href}>{paddock.name}</option>
-  //    })
 
+  // <select name="paddock">
+  //               {paddockOptions}
+  //             </select>
       return (
         <div>
           <form onSubmit={handleSubmit}>
             <input type="text" placeholder="Name" name="name"/>
-            <input type="text" placeholder="Species" name="species"/>
-            <input type="text" placeholder="Diet" name="diet"/>
-            
+            <select name="species" >
+            <option value="apatosaurus">Apatosaurus</option>
+            <option value="velociraptor">Velociraptor</option>
+            <option value="triceratops">Triceratops</option>
+            <option value="parasaurolopus">Parasaurolopus</option>
+            <option value="tyrannosaurus">Tyrannosaurus</option>
+            </select>
+            <select placeholder="Diet" name="diet">
+            <option value="herbivore"> Herbivore</option>
+            <option value="carnivore">Carnivore</option>
+              </select>
             <button type="submit">Save</button>
           </form>
         </div>
     )
-
 
 }
 

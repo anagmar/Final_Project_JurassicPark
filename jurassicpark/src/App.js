@@ -23,6 +23,7 @@ class App extends Component {
 
         <Route exact path = '/paddocks' component = {PaddockListContainer}/>
         <Route exact path = '/paddocks/:id' render = {(props) =>{
+          console.log(props);
           const id = props.match.params.id;
           console.log(id);
           return <SinglePaddockContainer id = {id} />

@@ -7,7 +7,7 @@ const PaddockList = (props) => {
                         return (
                           <li key={paddock.id} className="component-item">
                                   <div className = "component">
-                           <Paddock dinosaurs ={paddock.dinosaurs} paddock = {paddock}/>
+                           <Paddock paddock = {paddock}/>
                                   </div>
                           </li>
                         )

@@ -15,14 +15,23 @@ li {
   list-style: none;
 }
 
+.nav {
+  border: 7px solid #e7e7e7;
+  background-color: #f3f3f3;
+  padding: 10px;
+  text-decoration: none;
+}
 
-
+li a {
+  color: #666;
+}
 
 li.component-item {
   display: inline;
 }
 
 .navLink {
+
     display: inline;
     padding: 30px;
 }

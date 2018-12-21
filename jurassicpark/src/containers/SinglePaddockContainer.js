@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import Paddock from '../components/Paddock.js';
 import PaddockDetails from '../components/PaddockDetail.js';
 
@@ -8,17 +8,17 @@ class SinglePaddockContainer extends Component {
   constructor(props){
     super(props);
     this.state = {paddock: null}
+    this.state = {dinosaurs: []}
     this.handleDelete = this.handleDelete.bind(this)
   }
 
   componentDidMount(){
     console.log("hi ana")
     let request = new Request()
-    const urls = '/api/paddocks/'+ this.props.id + '/?projection=embedPaddock';
-    request.get(urls).then((data) => {
-    this.setState({paddock: data})
-    console.log("Here is the Single Paddock Data", data)
-    })
+    request.get('/paddocks/'+ this.props.id).then((data) => {
+      console.log("there will be data",data);
+    this.setState({paddock: data})})
+
   }
 
   handleDelete(id){
@@ -35,26 +35,30 @@ class SinglePaddockContainer extends Component {
 
   render(){
     console.log("begining", this.state.paddock)
-    if(!this.state.paddock){
+    console.log("begining dino", this.state.dinosaurs.length)
+
+    if(!this.state.paddock ){
       return null
-    } else if (this.state.paddock.dinosaurs.length()==0)
-        {
-        return "No Dinos"
+    }
 
-        }
-
-
-
+        // <Paddock dinosaur = {this.state.paddock._embedded.dinosaurs} paddock = {this.state.paddock}/>
+        // <PaddockDetails paddock = {this.state.paddock} dinosaurs={this.state.paddock._embedded.dinosaurs}
+        // <PaddockDetails paddock = {this.state.paddock} dinosaurs={this.state.dinosaurs}/>
 
     return (
+      <Fragment>
       <div>
-        <h1>{this.state.paddock.name}</h1>
-      <PaddockDetails paddock = {this.state.paddock} dinosaurs={this.state.paddock._embedded.dinosaurs}
-      />
+        <h1></h1>
+        <Paddock paddock = {this.state.paddock}/>
+        <PaddockDetails
+        paddock = {this.state.paddock}
+        dinosaurs = {this.state.dinosaurs}
+        handleDelete = {this.handleDelete}
+        handleEdit = {this.handleEdit}/>
       </div>
+      </Fragment>
     )
-
-  }
+}
 }
 
 export default SinglePaddockContainer;

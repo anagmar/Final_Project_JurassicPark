@@ -1,9 +1,12 @@
 package com.example.jurassicPark.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 @Entity
 @Table(name = "dinosaurs")
@@ -17,25 +20,29 @@ public class Dinosaur implements Serializable {
     private String name;
 
     @Column(name = "species")
-    private String species;
+    private Species species;
 
     @Column(name = "diet")
     private String diet;
 
-    @JsonIgnore
-    @ManyToOne
-    @JoinColumn (name = "paddock_id", nullable = false)
-    private Paddock paddock;
 
-    public Dinosaur(String name, String species, String diet, Paddock paddock){
+
+    public Dinosaur(String name, Species species){
         this.name = name.toLowerCase();
-        this.species = species.toLowerCase();
-        this.diet = diet;
-        this.paddock = paddock;
+        this.species = species;
+        this.diet = species.getDiet();
     }
 
     public Dinosaur(){
 
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -46,11 +53,11 @@ public class Dinosaur implements Serializable {
         this.name = name;
     }
 
-    public String getSpecies() {
+    public Species getSpecies() {
         return species;
     }
 
-    public void setSpecies(String species) {
+    public void setSpecies(Species species) {
         this.species = species;
     }
 
@@ -62,22 +69,7 @@ public class Dinosaur implements Serializable {
         this.diet = diet;
     }
 
-    public Long getId() {
-        return id;
+    public String getDietFromEnum(){
+        return this.species.getDiet();
     }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Paddock getPaddock() {
-        return paddock;
-    }
-
-    public void setPaddock(Paddock paddock) {
-        this.paddock = paddock;
-    }
-
-
-
 }

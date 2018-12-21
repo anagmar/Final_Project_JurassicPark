@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 const Paddock = (props) => {
-console.log(props.paddock)
+console.log("padddock", props.paddock)
   if(!props.paddock){
     return null;
   }
