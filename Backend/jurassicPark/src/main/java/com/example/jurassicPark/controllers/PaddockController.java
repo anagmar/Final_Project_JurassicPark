@@ -50,6 +50,6 @@ public class PaddockController {
 //    public void deletePaddock(@PathVariable Long id){
 //        Paddock paddock = paddockRepository.getOne(id);
 //        paddockRepository.delete(paddock);
-    }
+
 
 }
