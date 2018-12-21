@@ -35,18 +35,18 @@ console.log(props.dinosaurs);
         <div>
           <form onSubmit={handleSubmit}>
             <input type="text" placeholder="Name" name="name"/>
-            <select name="species" >
+            <select class = "species" name="species" >
             <option value="apatosaurus">Apatosaurus</option>
             <option value="velociraptor">Velociraptor</option>
             <option value="triceratops">Triceratops</option>
             <option value="parasaurolopus">Parasaurolopus</option>
             <option value="tyrannosaurus">Tyrannosaurus</option>
             </select>
-            <select placeholder="Diet" name="diet">
+            <select class="diet"placeholder="Diet" name="diet">
             <option value="herbivore"> Herbivore</option>
             <option value="carnivore">Carnivore</option>
               </select>
-            <button type="submit">Save</button>
+            <button class="new-dino" type="submit">Save</button>
           </form>
         </div>
     )

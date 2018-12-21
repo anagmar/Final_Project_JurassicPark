@@ -32,14 +32,14 @@ const PaddockForm = (props) => {
       return (
         <div>
           <form onSubmit={handleSubmit}>
-            <input type="text" placeholder="Name" name="name"/>
+            <input class="paddock" type="text" placeholder="Name" name="name"/>
 
-            <select name="paddockType" name="type">
+            <select class="type" name="paddockType" name="type">
             <option value = "jungle">Jungle</option>
             <option value = "mountains">Mountains</option>
             <option value = "dessert">Dessert</option>
             </select>
-            <button type="submit">Save</button>
+            <button class="new-paddock" type="submit">Save</button>
           </form>
         </div>
     )

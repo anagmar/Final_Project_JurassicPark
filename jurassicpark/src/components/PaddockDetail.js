@@ -1,19 +1,9 @@
 import React  from 'react';
-// import {Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 const PaddockDetails = (props) => {
 console.log("Here is the Paddock Deteil", props.paddock)
 
-  // const onDelete = () => {
-  //   props.handleDelete(props.paddock.id);
-  // }
-  //
-  // const onEdit = () => {
-  //   props.handleEdit(props.paddock.id)
-  // }
-
-
-   // const dinosaurs = props.dinosaurs.map((dinosaur, index) => {
    const onDelete = () => {
      props.handleDelete(props.paddock.id);
    }
@@ -21,16 +11,16 @@ console.log("Here is the Paddock Deteil", props.paddock)
    const onEdit = () => {
      props.handleEdit(props.paddock.id)
    }
-   //   return <li key = {index}>{dinosaur.name}</li>
-   //   console.log(dinosaurs)
-   // })
+
 return(
 
      <div>
      <h3>Type:</h3><p>{props.paddock.type}</p>
      <h3>Dinosaurs:</h3><p>No dinosaurs</p>
      <button onClick = {onDelete}>Delete Paddock </button>
-     <button onClick = {onEdit}>Add Dinosaurs</button>
+     <Link to = {'/paddocks/add'} className = "name">
+     <button>Add Dinosaurs</button>
+     </Link>
      </div>
 
 )

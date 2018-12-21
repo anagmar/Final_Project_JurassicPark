@@ -19,6 +19,7 @@ class SinglePaddockContainer extends Component {
       console.log("there will be data",data);
     this.setState({paddock: data})})
 
+
   }
 
   handleDelete(id){
@@ -40,7 +41,9 @@ class SinglePaddockContainer extends Component {
     if(!this.state.paddock ){
       return null
     }
-
+// handleNewDinosaur(dino){
+//   this.setState({dinosaurs: dino})
+// };
         // <Paddock dinosaur = {this.state.paddock._embedded.dinosaurs} paddock = {this.state.paddock}/>
         // <PaddockDetails paddock = {this.state.paddock} dinosaurs={this.state.paddock._embedded.dinosaurs}
         // <PaddockDetails paddock = {this.state.paddock} dinosaurs={this.state.dinosaurs}/>
@@ -53,8 +56,11 @@ class SinglePaddockContainer extends Component {
         <PaddockDetails
         paddock = {this.state.paddock}
         dinosaurs = {this.state.dinosaurs}
+        feed = {this.state.feed}
         handleDelete = {this.handleDelete}
-        handleEdit = {this.handleEdit}/>
+        handleEdit = {this.handleEdit}
+        handleDeleteFeed = {this.handleFeed}
+        handleNewDinosaur = {this.hand}/>
       </div>
       </Fragment>
     )

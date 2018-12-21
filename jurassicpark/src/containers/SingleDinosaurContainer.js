@@ -7,7 +7,9 @@ class SingleDinosaurContainer extends Component {
   constructor(props){
     super(props);
     this.state = {dinosaur: null}
+    this.state ={feed:'Hungry!'}
     this.handleDelete = this.handleDelete.bind(this)
+    this.handleFeed = this.handleFeed.bind(this)
   }
 
   componentDidMount(){
@@ -32,7 +34,16 @@ class SingleDinosaurContainer extends Component {
       window.location = '/dinosaurs/edit/' + id
     }
 
+handleFeed(id){
+  if(this.state.dinosaur.diet === 'herbivore'){
+    this.setState({feed: 'Fed nice Veggies!'})
+  }else if(this.state.dinosaur.species === 'velociraptor'){
+    this.setState({feed: 'Gave him a chunck of meat!'})
+  }else{
+    this.setState({feed: 'We gave him that old goat!'})
+  }
 
+}
 
   render(){
     if(!this.state.dinosaur){
@@ -48,6 +59,8 @@ class SingleDinosaurContainer extends Component {
                         diet = {this.state.dinosaur.diet}
                         handleDelete = {this.handleDelete}
                         handleEdit = {this.handleEdit}
+                        feed = {this.state.feed}
+                        handleFeed = {this.handleFeed}
                         />
 
       </div>

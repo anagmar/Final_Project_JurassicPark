@@ -15,15 +15,83 @@ li {
   list-style: none;
 }
 
+img {
+  width: 110em;
+}
+
+img.title {
+  width: 20em;
+  position: absolute;
+  top: 20px;
+  left:700px;
+}
+
+h3.dino{
+  text-decoration: none;
+  font-style: Futura;
+}
 .nav {
   border: 7px solid #e7e7e7;
-  background-color: #f3f3f3;
-  padding: 10px;
+  background-color: #A52A2A;
+  padding: 20px;
+  position:inherit;
+  top:40px;
   text-decoration: none;
+}
+a.dino{
+  text-decoration: none;
+  font-style: Futura;
+}
+
+a.paddock{
+  text-decoration: none;
+  font-style: Futura;
+  text-align: center;
+}
+
+h3.life{
+
+}
+
+input {
+  position: absolute;
+  left: 50px;
+  font-family: Futura;
+}
+select.species {
+  font-family: Futura;
+  position: absolute;
+  left: 400px;
+}
+select.diet {
+  font-family: Futura;
+  position: absolute;
+  left: 400px;
+}
+
+button.new-dino {
+    font-family: Futura;
+    position: absolute;
+    left: 50px;
+    top:650px;
+}
+
+button.new-paddock {
+    font-family: Futura;
+    position: absolute;
+    left: 50px;
+    top:650px;
+}
+select.type{
+  font-family: Futura;
+  position: absolute;
+  left: 220px;
 }
 
 li a {
-  color: #666;
+  color: white;
+  font-size: 2em;
+
 }
 
 li.component-item {

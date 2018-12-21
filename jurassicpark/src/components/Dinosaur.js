@@ -10,7 +10,7 @@ const Dinosaur = (props) => {
   return (
     <React.Fragment>
       <Link to = {"/dinosaurs/" + props.dinosaur.id } className = "name">
-      <h3 className = "dino">{props.dinosaur.name}</h3>
+      <h3 class = "dino">{props.dinosaur.name}</h3>
       <p className = "species">{props.dinosaur.species}</p>
 
       </Link>

@@ -3,14 +3,16 @@ import {Link} from 'react-router-dom';
 
 const NavBar = (props) => {
   return (
+<nav>
       <ul className = "nav">
         <li className="navLink">
-          <Link to="/dinosaurs">Dinosaurs</Link>
+          <Link class="dino" to="/dinosaurs">Dinosaurs</Link>
         </li>
         <li className="navLink">
-          <Link to="/paddocks">Paddocks</Link>
+          <Link class="paddock"to="/paddocks">Paddocks</Link>
         </li>
       </ul>
+      </nav>
   )
 }
 

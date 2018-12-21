@@ -7,6 +7,7 @@ import SingleDinosaurContainer from './containers/SingleDinosaurContainer.js'
 import SinglePaddockContainer from './containers/SinglePaddockContainer.js'
 import DinosaurFormContainer from './containers/DinosaurFormContainer.js'
 import PaddockFormContainer from './containers/PaddockFormContainer.js'
+import DinosaurToPaddockContainer from './containers/DinosaurToPaddockContainer.js'
 
 import './App.css';
 
@@ -20,7 +21,7 @@ class App extends Component {
         <Route exact path = '/dinosaurs' component = {DinosaurListContainer}/>
         <Route exact path = '/dinosaurs/new' component={DinosaurFormContainer}/>
         <Route exact path = '/paddocks/new' component={PaddockFormContainer}/>
-
+        <Route exact path = '/paddocks/add' component={DinosaurToPaddockContainer} />
         <Route exact path = '/paddocks' component = {PaddockListContainer}/>
         <Route exact path = '/paddocks/:id' render = {(props) =>{
           console.log(props);
